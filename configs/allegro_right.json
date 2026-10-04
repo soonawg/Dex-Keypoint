@@ -1,0 +1,16 @@
+{
+  "model_path": "../dex_teleop/assets/wonik_allegro/right_hand.xml",
+  "joint_names": [
+    "thj0", "thj1", "thj2", "thj3",
+    "ffj0", "ffj1", "ffj2", "ffj3",
+    "mfj0", "mfj1", "mfj2", "mfj3",
+    "rfj0", "rfj1", "rfj2", "rfj3"
+  ],
+  "fingertip_body_names": ["th_tip", "ff_tip", "mf_tip", "rf_tip"],
+  "palm_width_m": 0.087,
+  "source_to_robot": [
+    [1.0, 0.0, 0.0],
+    [0.0, 1.0, 0.0],
+    [0.0, 0.0, 1.0]
+  ]
+}

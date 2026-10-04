@@ -1,0 +1,21 @@
+{
+  "model_path": "../dex_teleop/assets/leap_hand/leap_hand.xml",
+  "joint_names": [
+    "12", "13", "14", "15",
+    "0", "1", "2", "3",
+    "4", "5", "6", "7",
+    "8", "9", "10", "11"
+  ],
+  "fingertip_body_names": [
+    "thumb_fingertip",
+    "fingertip",
+    "fingertip_2",
+    "fingertip_3"
+  ],
+  "palm_width_m": 0.087,
+  "source_to_robot": [
+    [1.0, 0.0, 0.0],
+    [0.0, 1.0, 0.0],
+    [0.0, 0.0, 1.0]
+  ]
+}

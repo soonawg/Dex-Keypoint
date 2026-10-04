@@ -12,16 +12,18 @@ dependencies = [
     "mediapipe>=0.10.14,<0.10.22",
     "mujoco>=3.1,<4",
     "numpy>=1.24,<2",
+    "scipy>=1.10",
 ]
 
 [project.scripts]
 dex-teleop = "dex_teleop.__main__:main"
+dex-retarget = "dex_retargeting.teleop:main"
 
 [tool.setuptools]
 include-package-data = true
 
 [tool.setuptools.packages.find]
-include = ["dex_teleop*"]
+include = ["dex_teleop*", "dex_retargeting*"]
 
 [tool.setuptools.package-data]
 dex_teleop = [
@@ -29,4 +31,13 @@ dex_teleop = [
     "assets/wonik_allegro/*.md",
     "assets/wonik_allegro/LICENSE",
     "assets/wonik_allegro/assets/*.stl",
+    "assets/leap_hand/*.xml",
+    "assets/leap_hand/*.urdf",
+    "assets/leap_hand/*.txt",
+    "assets/leap_hand/*.md",
+    "assets/leap_hand/meshes/*.stl",
+    "assets/shadow_hand/*.xml",
+    "assets/shadow_hand/*.md",
+    "assets/shadow_hand/LICENSE",
+    "assets/shadow_hand/assets/*.obj",
 ]

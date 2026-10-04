@@ -35,6 +35,9 @@ python -m pip install -e .
 The editable install registers the `dex-teleop` command and includes the
 MuJoCo XML model, meshes, and their BSD-2-Clause license.
 
+The existing Project 39 virtual environment can be reused. If its Python has
+no `pip`, no install is needed to run the source from this project directory.
+
 ## Run with a Windows webcam
 
 Keep the webcam attached to Windows. Do not pass it through `usbipd` to WSL.
@@ -86,12 +89,50 @@ For tracking/target preview without MuJoCo, omit `--mujoco`. Press `q` or
 - The camera preview displays the number of objects in the goal.
 - Focus the MuJoCo window to orbit/zoom with the mouse.
 
-## Retargeting limitations
+## Kinematic retargeting (Project 14)
 
-The current human-to-Allegro mapping is a provisional normalized flexion
-mapping, not calibrated kinematic retargeting. The little finger is tracked
-for features but the Allegro Hand V3 has no little-finger digit. Validate
-mapping and safety before adapting this software to physical hardware.
+`dex-retarget` (or `python -m dex_retargeting.teleop`) defaults to Project 39's
+responsive finger-flexion mapping. `--method ik` enables the experimental
+MediaPipe fingertip-to-joint least-squares optimizer. From the project root:
+
+```bash
+./.venv/bin/python -m dex_retargeting.teleop --camera 0
+./.venv/bin/python -m dex_retargeting.teleop --video demo.mp4
+./.venv/bin/python -m dex_retargeting.teleop --tcp-camera
+./.venv/bin/python -m dex_retargeting.teleop --tcp-camera --method ik
+```
+
+For the Windows webcam sender workflow, run `--tcp-camera` in WSL, then start
+`windows_camera_sender/run_camera_sender.ps1` in Windows PowerShell. The
+default TCP port is `8765`. Use `--no-viewer` to process landmarks without
+opening the MuJoCo hand window, `--handedness any` to accept either MediaPipe
+hand label, and `--config` to select another robot profile. The default
+flexion mode applies a 100 ms low-pass filter and rate limit to damp tracking
+jitter. See
+[RETARGETING.md](RETARGETING.md) and
+`configs/allegro_right.json` for the profile and implementation details.
+The experimental IK coordinate transform is an initial identity mapping and
+may need calibration for the camera orientation. This preview is
+simulation-only and does not send hardware commands.
+
+The second supported profile uses the LEAP Hand model converted from its
+official URDF:
+
+```bash
+./.venv/bin/python -m dex_retargeting.teleop --tcp-camera --config configs/leap_hand.json
+```
+
+Switch `--config` back to `configs/allegro_right.json` for Allegro.
+
+The Shadow Hand profile maps its five fingers and two wrist axes:
+
+```bash
+./.venv/bin/python -m dex_retargeting.teleop --tcp-camera --config configs/shadow_hand.json
+```
+
+Wrist tilt is relative to the first tracked pose. Press `c` in the preview to
+recalibrate its neutral pose. The Shadow profile starts with a conservative
+visualization mapping; it is not a hardware controller.
 
 ## Development and tests
 

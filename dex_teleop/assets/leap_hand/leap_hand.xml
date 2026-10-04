@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="LEAP Hand">
+  <compiler angle="radian" meshdir="meshes" autolimits="true" />
+  <default>
+    <joint damping="0.02" armature="0.001" />
+    <geom contype="0" conaffinity="0" group="2" />
+  </default>
+  <asset>
+    <mesh name="dip" file="dip.stl" />
+    <mesh name="fingertip" file="fingertip.stl" />
+    <mesh name="mcp_joint" file="mcp_joint.stl" />
+    <mesh name="palm_lower" file="palm_lower.stl" />
+    <mesh name="pip" file="pip.stl" />
+    <mesh name="thumb_dip" file="thumb_dip.stl" />
+    <mesh name="thumb_fingertip" file="thumb_fingertip.stl" />
+    <mesh name="thumb_pip" file="thumb_pip.stl" />
+  </asset>
+  <worldbody>
+    <body name="palm_lower">
+      <inertial pos="0 0 0" mass="0.237" fullinertia="0.000354094 0.000260915 0.000529257 -1.193e-06 -2.445e-06 -2.905e-06" />
+      <geom name="palm_lower_visual" type="mesh" mesh="palm_lower" pos="-0.02009524965 0.02575775613 -0.03472240358" euler="0 -0 0" rgba="0.60392156862745094426 0.14901960784313725283 0.14901960784313725283 1.0" />
+      <body name="mcp_joint" pos="-0.007095249653 0.02305775613 -0.01872240358" euler="1.570796327 1.570796327 0">
+        <joint name="1" type="hinge" axis="0 0 -1" range="-0.314 2.23" />
+        <inertial pos="0 0 0" mass="0.044" fullinertia="1.1499e-05 7.796e-06 1.4759e-05 3.049e-06 1.21e-07 1.12e-07" />
+        <geom name="mcp_joint_visual" type="mesh" mesh="mcp_joint" pos="0.008406902261 0.00776624386 0.01465735499" euler="1.637578961e-15 -1.02104733e-30 1.717796878e-31" rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
+        <body name="pip" pos="-0.0122 0.0381 0.0145" euler="-1.570796327 -1.006521266e-15 1.570796327">
+          <joint name="0" type="hinge" axis="0 0 -1" range="-1.047 1.047" />
+          <inertial pos="0 0 0" mass="0.032" fullinertia="4.798e-06 2.862e-06 4.234e-06 1.2e-08 4e-09 1.1e-08" />
+          <geom name="pip_visual" type="mesh" mesh="pip" pos="0.009643363092 0.0003 0.0007840340104" euler="-1.570796327 -1.570796327 0" rgba="0.74901960784313725839 0.74901960784313725839 0.74901960784313725839 1.0" />
+          <body name="dip" pos="0.015 0.0143 -0.013" euler="1.570796327 -1.570796327 0">
+            <joint name="2" type="hinge" axis="0 0 -1" range="-0.506 1.885" />
+            <inertial pos="0 0 0" mass="0.037" fullinertia="5.542e-06 5.727e-06 6.682e-06 -6.07e-07 -1.7e-08 -2.3e-08" />
+            <geom name="dip_visual" type="mesh" mesh="dip" pos="0.0211333529 -0.008432119147 0.009785088162" euler="-3.141592654 4.507511124e-32 4.439548105e-32" rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
+            <body name="fingertip" pos="-4.08805825e-09 -0.03610000421 0.0002" euler="4.593502943e-17 -2.873007191e-16 4.439548105e-32">
+              <joint name="3" type="hinge" axis="0 0 -1" range="-0.366 2.042" />
+              <inertial pos="0 0 0" mass="0.016" fullinertia="3.368e-06 1.556e-06 2.863e-06 1.15e-07 0 0" />
+              <geom name="fingertip_visual" type="mesh" mesh="fingertip" pos="0.01328642411 -0.006114238387 0.0145" euler="3.141592654 1.199311797e-33 4.439548105e-32" rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="mcp_joint_2" pos="-0.007095249653 -0.02239224387 -0.01872240358" euler="1.570796327 1.570796327 0">
+        <joint name="5" type="hinge" axis="0 0 -1" range="-0.314 2.23" />
+        <inertial pos="0 0 0" mass="0.044" fullinertia="1.1499e-05 7.796e-06 1.4759e-05 3.049e-06 1.21e-07 1.12e-07" />
+        <geom name="mcp_joint_2_visual" type="mesh" mesh="mcp_joint" pos="0.008406902261 0.00776624386 0.01465735499" euler="1.637578961e-15 -1.007646547e-30 2.120930013e-61" rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
+        <body name="pip_2" pos="-0.0122 0.0381 0.0145" euler="-1.570796327 -1.006521276e-15 1.570796327">
+          <joint name="4" type="hinge" axis="0 0 -1" range="-1.047 1.047" />
+          <inertial pos="0 0 0" mass="0.032" fullinertia="4.798e-06 2.862e-06 4.234e-06 1.2e-08 4e-09 1.1e-08" />
+          <geom name="pip_2_visual" type="mesh" mesh="pip" pos="0.009643363092 0.0003 0.0007840340104" euler="-1.570796327 -1.570796327 0" rgba="0.74901960784313725839 0.74901960784313725839 0.74901960784313725839 1.0" />
+          <body name="dip_2" pos="0.015 0.0143 -0.013" euler="1.570796327 -1.570796327 0">
+            <joint name="6" type="hinge" axis="0 0 -1" range="-0.506 1.885" />
+            <inertial pos="0 0 0" mass="0.037" fullinertia="5.542e-06 5.727e-06 6.682e-06 -6.07e-07 -1.7e-08 -2.3e-08" />
+            <geom name="dip_2_visual" type="mesh" mesh="dip" pos="0.0211333529 -0.008432119147 0.009785088162" euler="-3.141592654 2.114693379e-32 1.440818322e-31" rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
+            <body name="fingertip_2" pos="1.006139616e-16 -0.0361 0.0002" euler="4.593502943e-17 -2.873007191e-16 1.440818322e-31">
+              <joint name="7" type="hinge" axis="0 0 -1" range="-0.366 2.042" />
+              <inertial pos="0 0 0" mass="0.016" fullinertia="3.368e-06 1.556e-06 2.863e-06 1.15e-07 0 0" />
+              <geom name="fingertip_2_visual" type="mesh" mesh="fingertip" pos="0.01328642411 -0.006114238387 0.0145" euler="3.141592654 -4.317959788e-33 1.440818322e-31" rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="mcp_joint_3" pos="-0.007095245443 -0.06784224387 -0.01872240767" euler="1.570796327 1.570796327 0">
+        <joint name="9" type="hinge" axis="0 0 -1" range="-0.314 2.23" />
+        <inertial pos="0 0 0" mass="0.044" fullinertia="1.1499e-05 7.796e-06 1.4759e-05 3.049e-06 1.21e-07 1.12e-07" />
+        <geom name="mcp_joint_3_visual" type="mesh" mesh="mcp_joint" pos="0.008406902261 0.00776624386 0.01465735499" euler="1.637578961e-15 -1.005950499e-30 5.729641585e-32" rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
+        <body name="pip_3" pos="-0.0122 0.0381 0.0145" euler="-1.570796327 -1.006521266e-15 1.570796327">
+          <joint name="8" type="hinge" axis="0 0 -1" range="-1.047 1.047" />
+          <inertial pos="0 0 0" mass="0.032" fullinertia="4.798e-06 2.862e-06 4.234e-06 1.2e-08 4e-09 1.1e-08" />
+          <geom name="pip_3_visual" type="mesh" mesh="pip" pos="0.009643363092 0.0003 0.0007840340104" euler="-1.570796327 -1.570796327 0" rgba="0.74901960784313725839 0.74901960784313725839 0.74901960784313725839 1.0" />
+          <body name="dip_3" pos="0.015 0.0143 -0.013" euler="1.570796327 -1.570796327 0">
+            <joint name="10" type="hinge" axis="0 0 -1" range="-0.506 1.885" />
+            <inertial pos="0 0 0" mass="0.037" fullinertia="5.542e-06 5.727e-06 6.682e-06 -6.07e-07 -1.7e-08 -2.3e-08" />
+            <geom name="dip_3_visual" type="mesh" mesh="dip" pos="0.0211333529 -0.008432119147 0.009785088162" euler="-3.141592654 -1.409565111e-33 1.556541161e-32" rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
+            <body name="fingertip_3" pos="9.714451465e-17 -0.0361 0.0002" euler="4.593502943e-17 -2.873007191e-16 1.556541161e-32">
+              <joint name="11" type="hinge" axis="0 0 -1" range="-0.366 2.042" />
+              <inertial pos="0 0 0" mass="0.016" fullinertia="3.368e-06 1.556e-06 2.863e-06 1.15e-07 0 0" />
+              <geom name="fingertip_3_visual" type="mesh" mesh="fingertip" pos="0.01328642411 -0.006114238387 0.0145" euler="3.141592654 8.617071695e-33 1.556541161e-32" rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="pip_4" pos="-0.06939524965 -0.001242243865 -0.02162240358" euler="-8.238176646e-17 1.570796327 0">
+        <joint name="12" type="hinge" axis="0 0 -1" range="-0.349 2.094" />
+        <inertial pos="0 0 0" mass="0.032" fullinertia="4.798e-06 2.862e-06 4.234e-06 1.2e-08 4e-09 1.1e-08" />
+        <geom name="pip_4_visual" type="mesh" mesh="pip" pos="-0.005356636908 0.0003 0.0007840340104" euler="-1.570796327 -1.570796327 0" rgba="0.74901960784313725839 0.74901960784313725839 0.74901960784313725839 1.0" />
+        <body name="thumb_pip" pos="-2.775557562e-17 0.0143 -0.013" euler="1.570796327 -1.570796327 0">
+          <joint name="13" type="hinge" axis="0 0 -1" range="-0.47 2.443" />
+          <inertial pos="0 0 0" mass="0.003" fullinertia="5.93e-07 5.49e-07 2.24e-07 0 0 0" />
+          <geom name="thumb_pip_visual" type="mesh" mesh="thumb_pip" pos="0.01196192077 -5.308253836e-16 -0.01585264896" euler="1.570796327 1.605019844e-46 -3.920499625e-59" rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
+          <body name="thumb_dip" pos="0 0.0145 -0.017" euler="-1.570796327 1.605019844e-46 -1.972152263e-31">
+            <joint name="14" type="hinge" axis="0 0 -1" range="-1.2 1.9" />
+            <inertial pos="0 0 0" mass="0.038" fullinertia="8.474e-06 3.841e-06 7.679e-06 2.41e-07 2.6e-08 2.5e-08" />
+            <geom name="thumb_dip_visual" type="mesh" mesh="thumb_dip" pos="0.04396871571 0.05795295297 -0.008628676449" euler="1.942890293e-16 3.275157923e-15 1.112375853e-46" rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
+            <body name="thumb_fingertip" pos="-1.249000903e-16 0.0466 0.0002" euler="1.506395849e-44 5.423418723e-31 3.141592654">
+              <joint name="15" type="hinge" axis="0 0 -1" range="-1.34 1.88" />
+              <inertial pos="0 0 0" mass="0.049" fullinertia="2.0372e-05 4.336e-06 1.9845e-05 -4.89e-07 -3e-08 -9.7e-08" />
+              <geom name="thumb_fingertip_visual" type="mesh" mesh="thumb_fingertip" pos="0.06255953846 0.07845968291 0.04899291181" euler="4.379057701e-47 -3.330669074e-16 1.204240868e-46" rgba="0.60392156862745094426 0.14901960784313725283 0.14901960784313725283 1.0" />
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>
