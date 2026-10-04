@@ -5,6 +5,13 @@ Allegro Hand V3 right-hand model**. The Allegro palm stays fixed while the
 tracked fingers manipulate objects on a tabletop task scene. This project is
 simulation-only; it does not control physical robot hardware.
 
+![MuJoCo scene with a fixed Allegro Hand V3 and tabletop objects](docs/images/allegro-task-scene.png)
+
+![Illustrative MuJoCo simulation of the Allegro fingers opening and curling](docs/images/allegro-teleop-preview.gif)
+
+*The GIF is a rendered simulation preview, not a recording of live webcam
+teleoperation.*
+
 ## Requirements
 
 - Python 3.10, 3.11, or 3.12
