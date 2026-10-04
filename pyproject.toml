@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dex-keypoint-teleop"
+version = "0.1.0"
+description = "Webcam hand tracking and Allegro Hand V3 teleoperation in MuJoCo"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "mediapipe>=0.10.14,<0.10.22",
+    "mujoco>=3.1,<4",
+    "numpy>=1.24,<2",
+]
+
+[project.scripts]
+dex-teleop = "dex_teleop.__main__:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["dex_teleop*"]
+
+[tool.setuptools.package-data]
+dex_teleop = [
+    "assets/wonik_allegro/*.xml",
+    "assets/wonik_allegro/*.md",
+    "assets/wonik_allegro/LICENSE",
+    "assets/wonik_allegro/assets/*.stl",
+]
