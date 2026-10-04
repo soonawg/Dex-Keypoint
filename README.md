@@ -35,8 +35,8 @@ python -m pip install -e .
 The editable install registers the `dex-teleop` command and includes the
 MuJoCo XML model, meshes, and their BSD-2-Clause license.
 
-The existing Project 39 virtual environment can be reused. If its Python has
-no `pip`, no install is needed to run the source from this project directory.
+An existing project virtual environment can be reused. If its Python has no
+`pip`, no install is needed to run the source from this project directory.
 
 ## Run with a Windows webcam
 
@@ -89,11 +89,11 @@ For tracking/target preview without MuJoCo, omit `--mujoco`. Press `q` or
 - The camera preview displays the number of objects in the goal.
 - Focus the MuJoCo window to orbit/zoom with the mouse.
 
-## Kinematic retargeting (Project 14)
+## Kinematic hand retargeting
 
-`dex-retarget` (or `python -m dex_retargeting.teleop`) defaults to Project 39's
-responsive finger-flexion mapping. `--method ik` enables the experimental
-MediaPipe fingertip-to-joint least-squares optimizer. From the project root:
+`dex-retarget` (or `python -m dex_retargeting.teleop`) defaults to a responsive
+finger-flexion mapping. `--method ik` enables the experimental MediaPipe
+fingertip-to-joint least-squares optimizer. From the project root:
 
 ```bash
 ./.venv/bin/python -m dex_retargeting.teleop --camera 0
@@ -115,8 +115,7 @@ The experimental IK coordinate transform is an initial identity mapping and
 may need calibration for the camera orientation. This preview is
 simulation-only and does not send hardware commands.
 
-The second supported profile uses the LEAP Hand model converted from its
-official URDF:
+The LEAP Hand profile uses a model converted from its official URDF:
 
 ```bash
 ./.venv/bin/python -m dex_retargeting.teleop --tcp-camera --config configs/leap_hand.json
@@ -125,6 +124,8 @@ official URDF:
 Switch `--config` back to `configs/allegro_right.json` for Allegro.
 
 The Shadow Hand profile maps its five fingers and two wrist axes:
+
+![Shadow Hand E3M5 MuJoCo model](docs/images/shadow-hand.png)
 
 ```bash
 ./.venv/bin/python -m dex_retargeting.teleop --tcp-camera --config configs/shadow_hand.json

@@ -1,8 +1,9 @@
-# Project 14: Dex-Retargeting
+# Dex-Retargeting
 
 A small, configurable library for mapping human hand landmarks to robot
 fingertip targets and solving bounded robot joint positions with kinematic
-least squares. It does not access a camera or send commands to hardware.
+least squares. It supports webcam and video input, and does not send commands
+to hardware.
 
 ## Current implementation
 
@@ -18,7 +19,7 @@ least squares. It does not access a camera or send commands to hardware.
 - Run the same retargeting path from a webcam or recorded video, with optional
   MuJoCo visualization; tracking loss holds the last valid joint solution.
 
-The `allegro_right.json` profile reuses Project 39's Allegro assets. The
+The `allegro_right.json` profile uses the bundled Allegro assets. The
 `leap_hand.json` profile selects the LEAP Hand model converted from the
 official URDF and uses its own joint order and limits. Choose a profile with
 `--config configs/leap_hand.json` or `--config configs/allegro_right.json`.
@@ -26,9 +27,10 @@ Additional hands can be added with a MuJoCo-compatible model and a profile
 listing joint names, fingertip bodies, palm scale, and source-to-robot
 rotation.
 
-The `shadow_hand.json` profile includes all 24 Shadow Hand joints: thumb,
-index, middle, ring, little finger, and two wrist axes. Wrist tilt is measured
-relative to the first detected pose; press `c` in the preview to recalibrate.
+The `shadow_hand.json` profile maps thumb, index, middle, ring, and little
+fingers plus two wrist axes. Wrist tilt is measured relative to the first
+detected pose; press `c` in the preview to recalibrate. The main README shows
+the rendered Shadow Hand model.
 
 ## Install and test
 
@@ -40,8 +42,8 @@ dex-retarget --video demo.mp4
 dex-retarget --tcp-camera
 ```
 
-When running from the project root, the existing Project 39 virtual
-environment can be used without an editable install:
+When running from the project root, the existing project virtual environment
+can be used without an editable install:
 
 ```bash
 ./.venv/bin/python -m dex_retargeting.teleop --camera 0
@@ -56,8 +58,8 @@ network and do not expose it publicly.
 Use `--config` to choose another robot profile, and `--handedness any` if the
 input hand is not reported as Right by MediaPipe.
 
-The default `features` method reuses Project 39's responsive finger-flexion
-mapping. `--method ik` selects the experimental 3D fingertip optimizer. The
+The default `features` method uses a responsive finger-flexion mapping.
+`--method ik` selects the experimental 3D fingertip optimizer. The
 preview is simulation-only and does not send hardware commands. The Allegro
 profile's IK coordinate transform is an initial identity mapping and may need
 calibration for a particular camera orientation and hand pose. Check the
