@@ -7,10 +7,13 @@ simulation-only; it does not control physical robot hardware.
 
 ![MuJoCo scene with a fixed Allegro Hand V3 and tabletop objects](docs/images/allegro-task-scene.png)
 
-![Illustrative MuJoCo simulation of the Allegro fingers opening and curling](docs/images/allegro-teleop-preview.gif)
+**Live webcam teleoperation**
 
-*The GIF is a rendered simulation preview, not a recording of live webcam
-teleoperation.*
+![Live webcam hand tracking driving the Allegro MuJoCo simulation](docs/images/dex-real-teleop.gif)
+
+**MuJoCo finger-motion simulation preview**
+
+![Allegro fingers opening and curling in the MuJoCo task scene](docs/images/allegro-teleop-preview.gif)
 
 ## Requirements
 
